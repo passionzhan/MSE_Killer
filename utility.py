@@ -69,7 +69,7 @@ class BrowserHelper():
     浏览器操作的辅助类
     '''
     @staticmethod
-    def find_element(onwer, lStr, wTime=15, wStr='Element can not be found', \
+    def find_element(onwer, lStr, wTime=5, wStr='Element can not be found', \
                      methodName='find_element_by_xpath'):
         '''
         利用xpath定位元素
@@ -85,7 +85,7 @@ class BrowserHelper():
             #  隐式等待
             if isinstance(onwer, webdriver.Firefox):
                 myWait = WebDriverWait(onwer, wTime)
-                # myWait.until(EC.presence_of_element_located((By.XPATH, lStr)))
+                myWait.until(EC.presence_of_element_located((By.XPATH, lStr)))
             if methodName == "find_element_by_xpath":
                 rtnEle = onwer.find_element_by_xpath(lStr)
             elif methodName == "find_elements_by_xpath":
@@ -160,7 +160,7 @@ class BrowserHelper():
         loginSuc = False
 
         warningStr = "Can not find the login element"
-        loginEle = BrowserHelper.find_element(browser, judeStr, warningStr)
+        loginEle = BrowserHelper.find_element(browser, judeStr, 10, warningStr)
         if loginEle is not None:
             loginSuc = True
         else:
@@ -247,7 +247,7 @@ class BrowserHelper():
                     break
             # allBodySrolled = browser.page_source
 
-            if BrowserHelper.find_element(browser,noDataFlag_XPath,'noDataFlag can not be found!'):
+            if BrowserHelper.find_element(browser,noDataFlag_XPath,5,'noDataFlag can not be found!'):
                 logger.info("no more information can be found!")
                 break
             # else:
