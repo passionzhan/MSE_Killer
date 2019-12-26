@@ -16,7 +16,6 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from redis.client import Redis
 
 logger = logging.getLogger(__name__)
 
