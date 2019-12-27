@@ -1,0 +1,190 @@
+@charset "utf-8";
+
+
+
+.table_tr{
+	
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+a, img {
+	border: 0;
+	text-decoration:none;
+}
+
+body {
+	font: 12px/180% Arial, Helvetica, sans-serif, "新宋体";
+}
+
+.selectNumberScreen {
+	width: 995px;
+	margin: 20px auto;
+}
+
+.screenBox dl {
+	border-bottom: #e6e6e6 1px dashed;
+	width: 968px;
+	overflow: hidden
+}
+
+.screenBox dl.noborder {
+	border-bottom: 0px;
+	border-left: 0px;
+	border-top: 0px;
+	border-right: 0px
+}
+
+.screenBox dl.goodstype {
+	border-bottom: #e6e6e6 1px dashed
+}
+
+.screenBox dl dt {
+	float: left;
+	height: 30px
+}
+
+.screenBox dl dt {
+	text-align: left;
+	width: 75px;
+	height: 22px;
+	font-weight: 600;
+	padding-top: 6px
+}
+
+.screenBox dl dd {
+	position: relative;
+	padding-bottom: 5px;
+	padding-left: 0px;
+	width: 840px;
+	padding-right: 48px;
+	float: left;
+	overflow: hidden;
+	padding-top: 0px
+}
+
+.screenBox dl dd a {
+	line-height: 14px;
+	margin: 9px 25px 0px 0px;
+	display: inline-block;
+	color: #0da3e2;
+	overflow: hidden;
+	text-decoration: none
+}
+
+.screenBox dl dd a:hover {
+	background: #39c;
+	color: #fff
+}
+
+.screenBox dl dd a.selected {
+	background: #39c;
+	color: #fff
+}
+
+.screenBox dl dd span.more {
+	position: absolute;
+	width: 39px;
+	display: block;
+	height: 14px;
+	top: 6px;
+	cursor: pointer;
+	right: 1px
+}
+
+.screenBox dl dd span.more label {
+	display: inline-block;
+	cursor: pointer
+}
+
+.hasBeenSelected {
+/* 	border: #b2d1ff 1px solid; */
+	padding: 2px;
+	width: 971px;
+	/* height:36px; */
+	margin-top: 10px;
+	overflow: hidden;
+	background-color:#efefef
+}
+
+.hasBeenSelected dl {
+	width: 984px;
+/* 	background: #f6f8fd; */
+	overflow: hidden;
+	margin-bottom: 2px;
+	margin-top: 2px;
+}
+
+.hasBeenSelected dl dt {
+	float: left
+}
+
+.hasBeenSelected dl dd {
+	float: left
+}
+
+.hasBeenSelected dl dt {
+	text-align: right;
+	line-height: 30px;
+	width: 72px;
+	height: 30px;
+	font-weight: 600
+}
+
+.hasBeenSelected dl dd {
+	padding-bottom: 4px;
+	padding-left: 0px;
+	width: 890px;
+	padding-right: 2px;
+	padding-top: 0px
+}
+
+.selectedInfor {
+	border-bottom: #f60 1px solid;
+	position: relative;
+	border-left: #f60 1px solid;
+	padding-bottom: 1px;
+	margin: 4px 10px 0px 0px;
+	padding-left: 5px;
+	padding-right: 5px; /*17*/
+	display: block;
+	white-space: nowrap;
+	background: #fff;
+	float: left;
+	height: 24px;
+	border-top: #f60 1px solid;
+	border-right: #f60 1px solid;
+	padding-top: 1px
+}
+
+.selectedInfor label {
+	color: #f60;
+	font-size:12px;
+	margin-top: 1px;
+}
+
+.eliminateCriteria {
+	line-height: 21px;
+	margin-top: 4px;
+	width: 80px;
+	float: left;
+	color: #f60;
+	cursor: pointer;
+	font-weight: 600
+}
+
+.selectedInfor em {
+	/* background: url("../ico/x.ico") no-repeat; */
+	cursor: pointer;
+	display: block;
+	height: 17px;
+	overflow: hidden;
+	position: absolute;
+	right: 2px;
+	top: 2px;
+	width: 13px;
+}

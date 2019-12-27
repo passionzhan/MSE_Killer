@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   jonsdump.py    
+@File    :   jsondump.py
 @Contact :   9824373@qq.com
 @License :   (C)Copyright 2017-2018, Zhan
 @Desc    :     
@@ -31,7 +31,6 @@ user_config['exam_address_name_list']  = [
     '北京外国语大学国际教育集团',
     '北京外国语大学国际教育集团第一分考点',
     '北京外国语大学国际教育集团第二分考点',
-    '北京外国语大学国际教育集团第三分考点',
     '北京王府学校',
 ]
 
@@ -44,7 +43,7 @@ basic_config['login_flag']          = '//li/a[contains(text(),"退出")]'
 basic_config['user_input']        = '//form//input[@id="loginName"]'
 basic_config['pwd_input']        = '//form//input[@id="loginPwd"]'
 basic_config['verifiction_input']        = '//form//input[@id="verificationCode"]'
-basic_config['submit_bnt']        = '//button[@id="login_button"]'
+basic_config['submit_bnt']        = '//form//button[@id="login_button"]'
 basic_config['agree_btn'] = '//div[contains(@class,"page-container")]//input[@value="同意"]'
 basic_config['base_exam_name'] \
     = '//div[contains(@class,"selectNumberScreen")]/div[@id="selectList"]/dl/dd[@id="time_id"]/a[contains(text(),"%s")]'
@@ -54,8 +53,10 @@ basic_config['base_exam_type'] \
     = r'//div[contains(@class,"selectNumberScreen")]/div[@id="selectList"]/dl/dd[@id="projectType"]/a[contains(text(),"%s")]'
 basic_config['exam_region_selector'] \
     = r'//div[contains(@class,"selectNumberScreen")]/div[@id="selectList"]/dl/dd/select[@name="addr"]'
-basic_config['base_radio_selector'] = '//table[contains(@class,"store_cart_content")]//tr/td/input[@name="selectId"]'
-basic_config['next_step_btn'] = '//div[@id="submit_but"]/button[@onclick="submit()" and contains(text(),"下一步")]'
+basic_config['base_radio_selector'] = '//table[contains(@class,"store_cart_content")]//tr/td/input[@name="checkbox" and @type="radio"]'
+basic_config['next_step_btn'] = '//div[@id="submit_but"]/button[contains(text(),"下一步")]'
+basic_config['alert_model'] = '//div[@id="alert_model"]'
+basic_config['alert_model_close_btn']=  '//a[@id="closeThePage" and contains(text(),"x")]'
 # 声明浏览器对象，将chromedriver驱动放在chrome浏览器安装目录下，指定驱动的绝对路径
 # browser = webdriver.Chrome(executable_path=r'D:\Google\Chrome\Application\chromedriver')
 

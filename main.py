@@ -15,7 +15,7 @@ from selenium.webdriver.support.select import Select
 
 from utility import *
 
-with open('user_config.cfg', 'r',encoding='utf-8') as f:
+with open('user_config_CAE.cfg', 'r',encoding='utf-8') as f:
     user_config = json.load(f)
 
 with open('basic_config.cfg', 'r',encoding='utf-8') as f:
@@ -78,38 +78,86 @@ try:
     browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     agreeBtn = BrowserHelper.find_element(browser, basic_config['agree_btn'], )
     BrowserHelper.eleClick(agreeBtn)
+    # 等待3秒，确保新页面出现
+    time.sleep(40)
 
+    order_url = browser.current_url
+    successed = False
+    while not successed:
+        # step4、 选择考点，报名项目、报名
+        # 选考试名称
+        exam_Name_str = basic_config['base_exam_name'] % user_config['exam_name']
+        exam_Name_btn = BrowserHelper.find_element(browser, exam_Name_str,)
+        BrowserHelper.eleClick(exam_Name_btn)
+        # 选地区
+        region_Selector = Select(BrowserHelper.find_element(browser,basic_config['exam_region_selector']))  # 实例化Select
+        time.sleep(2)
+        region_Selector.select_by_visible_text(user_config['exam_region_name'])
+        # 选科目
+        time.sleep(2)
+        exam_type_str = basic_config['base_exam_type'] % user_config['exam_type_name']
+        exam_type_btn = BrowserHelper.find_element(browser, exam_type_str,)
+        exam_type_id = exam_type_btn.get_attribute("attrval")
+        BrowserHelper.eleClick(exam_type_btn)
 
-    # step4、 选择考点，报名项目、报名
-    # 选考试名称
-    exam_Name_str = basic_config['base_exam_name'] % user_config['exam_name']
-    exam_Name_btn = BrowserHelper.find_element(browser, exam_Name_str,)
-    BrowserHelper.eleClick(exam_Name_btn)
-    # 选地区
-    region_Selector = Select(BrowserHelper.find_element(browser,basic_config['exam_region_selector']))  # 实例化Select
-    region_Selector.select_by_visible_text(user_config['exam_region_name'])
-    # 选科目
-    exam_type_str = basic_config['base_exam_type'] % user_config['exam_type_name']
-    exam_type_btn = BrowserHelper.find_element(browser, exam_type_str,)
-    exam_type_id = exam_type_btn.get_attribute("attrval")
-    BrowserHelper.eleClick(exam_type_btn)
+        next_step_btn = None
+        radio_selector_btn = None
+        alert_model_str = basic_config['alert_model']
+        alert_model_close_str = basic_config['alert_model_close_btn']
+        alert_model = BrowserHelper.find_element(browser,alert_model_str)
+        alert_model_close_btn = BrowserHelper.find_element(alert_model, alert_model_close_str)
 
-    next_step_btn = None
-    radio_selector_btn = None
-    while True:
-        #  选考点
-        for address in user_config['exam_address_name_list']:
+        i = 0
+        #  不停选择考点
+
+        while i < len(user_config['exam_address_name_list'])+2:
+            address = user_config['exam_address_name_list'][i]#  选考点
+            i += 1
+            if i == len(user_config['exam_address_name_list']):
+                i = 0
+
             exam_address_btn_str = basic_config['base_exam_address'] % address
             exam_address_btn = BrowserHelper.find_element(browser, exam_address_btn_str, wTime=0.5,)
             BrowserHelper.eleClick(exam_address_btn)
-            radio_selector_btn_str = basic_config['base_radio_selector'] % exam_type_id
+            if alert_model.is_displayed():
+                #  出错，则关闭弹出窗，继续
+                BrowserHelper.eleClick(alert_model_close_btn)
+            # radio_selector_btn_str = basic_config['base_radio_selector'] % exam_type_id
+            # 分析页面后改进
+            cur_url = browser.current_url
+            radio_selector_btn_str = basic_config['base_radio_selector']
             radio_selector_btn = BrowserHelper.find_element(browser, radio_selector_btn_str, wTime=0.5,)
+            excute_status = 0
+            # 1 抢票成功
+            # 2 出错，出现弹窗，关闭弹窗继续
+            # 3 点击后页面打不开
             if radio_selector_btn:
                 next_step_btn = BrowserHelper.find_element(browser, basic_config['next_step_btn'], wTime=0.5, )
                 if next_step_btn:
                     BrowserHelper.eleClick(next_step_btn)
-                    logger.info("恭喜你，报名成功！请抓紧填写报名信息并在24小时内确认缴费")
+                    # 判断是否成功
+                    wait_time = 0
+                    while True:
+                        forward_url = browser.current_url
+                        if forward_url != cur_url: # 发生跳转,成功
+                            logger.info("恭喜你，报名成功！请抓紧填写报名信息并在24小时内确认缴费")
+                            vStr = input('信息填写完毕输入exit退出秒杀程序:')
+                            successed = True
+                            break
+                        elif alert_model.is_displayed(): # 有延时或者错误
+                            BrowserHelper.eleClick(alert_model_close_btn)
+                            successed = False
+                            break
+                        else:
+                            time.sleep(0.1)
+                            wait_time += 0.1
+                            if wait_time > 5.0:
+                                successed = False
+                                break
                     break
+
+        BrowserHelper.openUrl(order_url)
+        # time.sleep(3)
 
 finally:
     browser.close()

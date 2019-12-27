@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html><head>
+<title>选择报考</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+<meta http-equiv="Cache-Control" content="no-store">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+	
+ <link rel="icon" href="http://tybm-steady.neea.cn/order/images/browserTitle.ico" type="image/x-icon">
+ <link rel="shortcut icon" href="http://tybm-steady.neea.cn/order/images/browserTitle.ico" type="image/x-icon">
+ <link href="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/font-awesome.css" rel="stylesheet" type="text/css">
+ <link href="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/bootstrap.css" rel="stylesheet" type="text/css">
+ <link href="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/default.css" rel="stylesheet" type="text/css">
+ 
+  <link href="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/loading.css" rel="stylesheet" type="text/css">
+ <link href="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/alterConetntDiv.css" rel="stylesheet" type="text/css">
+ <style>
+ 	  .dropdown.open .dropdown-toggle{background:#fff;color:#999}
+  #goAnother{min-width:100px;}
+  #goAnother li{display:block;text-align:left;padding:5px 5px;}
+  #goAnother li a{line-height:6px;font-size:12px;color:#666}
+  
+  html,body{ height:100%; margin:0; padding:0} 
+	.mask{height:100%; width:100%; position:fixed;  top:0; z-index:1000; } 
+	.mask a{text-decoration:none;}
+	.opacity{ height:100%;width:100%;opacity:0.5;filter:alpha(opacity=50);background-color:#000;position:fixed;top:0;z-index:999; }
+	.mask *{color: #333} 
+	.btnFontStyle{display:inline-block;margin-right:60px;border: 1px solid #0DA3E2;background-color:#fff;color:#0DA3E2;padding:4px 10px;font-family: '微软雅黑';text-decoration:none;}
+	.closeThePage{display:inline-block;color:#0DA3E2;position:absolute;top:10px;right:20px;font-size: 18px;font-family: '微软雅黑';text-decoration:none;padding:0 6px;line-height:18px}
+	.btnFontStyle:hover{background-color:#0DA3E2;color:#fff;border:1px solid #0DA3E2;box-shadow: 0px 3px  4px #dcdcdc; }
+ </style>
+ 
+
+<!--[if lt IE 9]><script r='m'>document.createElement("section")</script><![endif]--><script src="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/hm.js"></script><script src="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/WdatePicker.js"></script><link href="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/WdatePicker.css" rel="stylesheet" type="text/css"> 
+<script src="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/script.js" type="text/javascript"></script><style type="text/css">.dropdown-submenu:hover>.dropdown-menu{display:none}</style>
+<script src="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/jquery.js" type="text/javascript"></script>  
+<script src="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/jquery_002.js" type="text/javascript"></script>
+<script src="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/jquery_003.js"></script>
+<script type="text/javascript">
+  	var imgPath="//tybm-steady.neea.cn/order/";
+</script> 
+<script type="text/javascript" src="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/back-to-top.js"></script>
+<script type="text/javascript">
+	var imgPath="//tybm-steady.neea.cn";
+	var proId = "13";
+		
+	function closeMode(){ $("#alert_model").hide(); }
+	
+	function showAlertModel(obj){
+		$("#alert_text").html(obj);
+		$("#alert_model").show();
+	}
+	
+	$(function () { $('input, textarea').placeholder(); });
+</script>
+
+
+ 
+<link href="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/order.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/selectPage.css">
+<script src="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/select.js"></script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?1d2d0f11bb97c185eb244d3ead0686a9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+		
+</head>
+
+<body class="page-header-fixed">
+
+		
+
+
+
+
+
+ 
+    <div class="header navbar navbar-default ">
+        
+        <div class="front-topbar" id="login-info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 col-sm-7">
+                        <ul class="list-unstyled inline">
+                            <li><i class="fa fa-phone topbar-info-icon top-2"></i>Call us: <span>010-62979166-6</span></li>
+                            
+	                        
+	                            <li class="sep"><span>|</span></li>
+	                            <li><i class="fa fa-envelope-o topbar-info-icon top-2"></i>Email: <span>mse@mail.neea.edu.cn</span></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="col-md-5 col-sm-5 login-reg-links">
+                         <ul class="list-unstyled inline">
+                         <li id="#" class="dropdown">
+		                    	<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">前往
+		                    	<span class="caret"></span>
+		                    	</a>
+							
+									<ul id="goAnother" class="dropdown-menu">
+										
+										
+										<li>
+											 
+											 
+											 
+											<a href="http://bec.neea.edu.cn/">
+												剑桥商务英语报名网
+											</a>
+										</li>
+										
+										<li>
+											 
+											 
+											 
+											<a href="http://wsk.neea.edu.cn/">
+												全国外语水平考试报名网
+											</a>
+										</li>
+										
+										<li>
+											 
+											 
+											 
+											<a href="http://pets.neea.edu.cn/">
+												全国英语等级考试报名网
+											</a>
+										</li>
+										
+										<li>
+											 
+											 
+											 
+											<a href="http://delf-dalf.neea.edu.cn/">
+												法语考试报名网
+											</a>
+										</li>
+										
+										<li>
+											 
+											 
+											 
+											<a href="http://mse.neea.edu.cn/">
+												剑桥通用英语证书考试
+											</a>
+										</li>
+										
+										<li>
+											 
+											 
+											 
+											<a href="http://cyle.neea.edu.cn/">
+												剑桥少儿英语考试报名网
+											</a>
+										</li>
+										
+										<li>
+											 
+											 
+											 
+											<a href="http://ccpt.neea.edu.cn/">
+												全国书画考试报名网
+											</a>
+										</li>
+										
+										<li>
+											 
+											 
+											 
+											<a href="http://nit.neea.edu.cn/">
+												全国计算机应用水平考试
+											</a>
+										</li>
+										
+										<li>
+											 
+											 
+											 
+											<a href="http://dele.neea.edu.cn/">
+												西班牙语考试报名
+											</a>
+										</li>
+										
+									</ul>
+							</li>
+                        	<li class="sep"><span>|</span></li>
+                            
+                        		
+									<li id="nagaLoginUrl">
+										<a href="https://member.neea.cn/userCenter/userInfo" class="dropdown-toggle" data-delay="0" data-close-others="false">
+											个人中心</a>
+									</li>
+									<li class="sep"><span>|</span></li>
+                        			<li id="nagaLoginUrl">
+                        			<a href="https://member.neea.cn/userCenter/userInfo" class="dropdown-toggle" style="color:#0da3e2" data-delay="0" data-close-others="false">
+				                    	詹宇斌
+			                        </a>
+                        			</li>
+                        			<li class="sep"><span>|</span></li>
+                            		<li><a href="https://member.neea.cn/login/logout">退出</a></li>
+                        			
+                        		
+                        		
+                        	
+                        </ul>
+                    </div>
+                </div>
+            </div>        
+        </div>
+        
+		<div class="container navbar-static-top">
+			  
+  			<div class="navbar-header">
+				
+				<button class="navbar-toggle btn navbar-btn" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				
+				<a class="navbar-brand logo-v1" href="http://mse.neea.edu.cn/" style="padding: 0px;">
+					<img src="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/neea_font_13.png" id="logoimg" alt="">
+				</a>
+			</div>
+		
+			
+			<div class="navbar-collapse collapse ">
+				<ul class="nav navbar-nav">
+					<li class="dropdown " id="home">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-delay="0" data-close-others="false">
+                        	&nbsp;
+                    	</a>
+					</li>
+                    <li class="dropdown">
+		                <a href="javascript:void(0);" class="dropdown-toggle" data-delay="0" data-close-others="false">
+			                &nbsp;
+		                </a>
+                    </li>
+                </ul>                         
+            </div>
+		</div>
+    </div>
+    
+    
+    <div id="alert_model" hidden="hidden">
+		<div class="mask">
+			<div style="background-color:#fff;width:500px;height:auto;margin:200px auto;position:relative">
+				<div style="width:100%;height:46px;border-bottom:1px solid #efefef;">
+					<p style="padding-left:40px;text-align:left;font-size: 18px;font-family:'微软雅黑';color:#0DA3E2;line-height:44px">
+					提示：
+					</p>
+					<a id="closeThePage" href="javascript:closeMode();" class="closeThePage">x</a>
+				</div>
+				<div id="alert_text" style="padding:20px 40px 20px 40px;text-align:left;font-size: 14px;font-family: '微软雅黑';color:#333;line-height:20px;">
+					
+				</div>
+		
+			</div>
+		</div>
+		<div class="opacity"></div>
+	</div>
+		
+		 
+
+ 
+
+ 
+ 
+ 
+
+ 
+<div class="page-container min-hight" style="min-height:550px;">
+ <div style="width: 100%;" class="container">
+     <div class="row"> 
+         <div class="panel panel-info" style="border-color: #ffffff">
+             <div class="panel-body" style="border: 0px;margin-top: 2%"> 
+
+
+    <div style="width: 960px; margin: 10px auto; clear: both;"> 
+    <div class="selectNumberScreen">
+    <div id="selectList" class="screenBox screenBackground">
+    <dl class="listIndex" attr="terminal_time"> 
+        <dt class="choice_font">考次名称<img src="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/xing.png">: 
+        </dt> 
+        <dd id="time_id"> 
+             
+                
+                     
+                     
+                        
+                             
+                                <a href="javascript:void(0)" class="" attrval="202013001">2020-04-18 CAE</a> 
+                             
+                            
+                         
+                    
+                 
+             
+                
+                     
+                     
+                        
+                             
+                             
+                                <a href="javascript:void(0)" attrval="202013002" class="selected">2020-04-25 KETPET青少版</a> 
+                            
+                         
+                    
+                 
+            
+        </dd> 
+    </dl> 
+    <dl class="listIndex" attr="terminal_area"> 
+        <dt class="choice_font">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 区<img src="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/xing.png">:
+        </dt> 
+        <dd>
+            <select name="addr" autocomplete="off" onchange="getAddr2()" style="margin-top: 5px">
+                <option id="">==请选择==</option>
+                 
+                    
+                         
+                         
+                            <option id="110000" selected="selected">北京市</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="120000">天津市</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="130000">河北省</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="210000">辽宁省</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="230000">黑龙江省</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="310000">上海市</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="320000">江苏省</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="330000">浙江省</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="340000">安徽省</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="350000">福建省</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="360000">江西省</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="370000">山东省</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="410000">河南省</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="420000">湖北省</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="430000">湖南省</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="440000">广东省</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="460000">海南省</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="500000">重庆市</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="510000">四川省</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="520000">贵州省</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="530000">云南省</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="610000">陕西省</option> 
+                        
+                     
+                 
+                    
+                         
+                         
+                            <option id="620000">甘肃省</option> 
+                        
+                     
+                
+            </select> 
+        </dd> 
+    </dl> 
+    <dl class="listIndex" attr="">
+        <dt class="choice_font">考&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;点<img src="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/xing.png">:
+        </dt> 
+        <dd id="orglist"><a href="javascript:void(0)" class="selected" attrval="13000100010004">海淀区上地西路41号院宏达商务中心层朴新教育</a><a href="javascript:void(0)" attrval="13000100010006">朝阳区定福庄水利水电考点</a><a href="javascript:void(0)" attrval="13000100010008">朝阳区慧忠北里119号</a><a href="javascript:void(0)" attrval="13000100010010">海淀区西二旗大街19号外附培训学校</a><a href="javascript:void(0)" attrval="13000100010017">海淀区清河一街83号巨人清河教学部</a><a href="javascript:void(0)" attrval="13000100010018">海淀区知春路113号杰睿学校（海淀黄庄校区）</a><a href="javascript:void(0)" attrval="13000100010025">海淀区北辛庄路考场</a><a href="javascript:void(0)" attrval="13000100010028">朝阳区管庄路盛世环球培优常营校区</a><a href="javascript:void(0)" attrval="13000100010033">丰台区南四环路129号怡海花园</a><a href="javascript:void(0)" attrval="13000100010034">大兴区创新路2号外研社国际会议中心</a><a href="javascript:void(0)" attrval="13000100010037">丰台区东铁营顺三条8号院北京方庄文化学校</a><a href="javascript:void(0)" attrval="13000100010040">朝阳区花家地街19号</a><a href="javascript:void(0)" attrval="1300010027">北京外国语大学国际教育集团</a><a href="javascript:void(0)" attrval="13000100270002">北京外国语大学国际教育集团第一分考点</a><a href="javascript:void(0)" attrval="13000100270003">北京外国语大学国际教育集团第二分考点</a><a href="javascript:void(0)" attrval="1300010035">北京王府学校</a></dd> 
+    </dl> 
+    <dl class="listIndex" attr="terminal_subject">
+        <dt class="choice_font">科&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目<img src="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/xing.png">:
+        </dt> 
+        <dd id="projectType"><a href="javascript:void(0)" attrval="130009">KET青少版</a><a href="javascript:void(0)" attrval="130010" class="selected">PET青少版</a></dd> 
+    </dl> 
+    </div>
+    <div class="hasBeenSelected"> 
+         <dl>
+             <dt class="choice_font">已选条件：</dt> 
+             <dd style="" class="clearDd"> 
+              <div class="clearList"><div name="time_id" id="202013002" class="selectedInfor selectedShow"><label>2020-04-25 KETPET青少版</label></div><div name="orglist" id="13000100010004" class="selectedInfor selectedShow"><label>海淀区上地西路41号院宏达商务中心层朴新教育</label></div><div name="projectType" id="130010" class="selectedInfor selectedShow"><label>PET青少版</label></div></div> 
+             </dd> 
+         </dl> 
+    </div>
+    </div> 
+    <div style="text-align: center; ; margin: 10px auto; width: 971px;">
+        <table id="table" width="100%"> 
+            <tbody><tr id="table_tr" style="background-color: #fff;font-weight: 600;line-height: 30px;"> 
+                <td width="10%" height="35px">选择</td> 
+                <td width="22%">科目</td> 
+                <td width="24%">考点</td> 
+                <td width="17%">开考日期</td> 
+                <td width="15%">状态</td> 
+                <td width="12%">价格(RMB)</td>
+            </tr> 
+        </tbody></table><table class="store_cart_content"><tbody><tr class="cart_goods" style="line-height: 30px;"><td class="cart_goods" style="text-align: center;"><input type="hidden" name="selectId" value="130010"><input type="hidden" name="packageId" value="13A021"></td><td colspan="3" style="text-align: left;">PET青少版</td><td></td><td>555.00</td></tr><tr class="tr_goods"><td width="10%"><input type="hidden" name="categoryId" value="130010"><input type="hidden" name="packageId" value="13A021"><input type="hidden" name="orgGeo" value="110000110108"><input type="hidden" name="relationshipId" value="13000100010004"><input type="hidden" name="examId" value="202013002"><input type="hidden" name="examDate" value="2020-04-25"><input type="hidden" name="subjectId" value="130010"></td><td width="22%">PET青少版</td><td width="24%">海淀区上地西路41号院宏达商务中心层朴新教育</td><td width="17%">2020-04-25</td><td width="15%">名额暂满</td><td width="12%"></td></tr></tbody></table>
+        
+    </div>
+    <div id="submit_but" style="text-align: center; line-height: 24px; margin-top: 30px; display: none;" hidden="hidden"> 
+        <button type="button" onclick="submit()" class="btn blue" style="font-family: '微软雅黑'">下一步:信息采集</button> 
+    </div>
+     
+        <div style="width: 960px; margin:35px 0px 0px 0px;color:#666; clear: both;"><p class="MsoListParagraph">1.<span style="font-size: 19px;color:black;background:yellow">中国大陆考生必须携带</span><strong><span style="font-size:19px;font-family:宋体;color:red;background:yellow">有效</span></strong><span style="font-size:19px;color:black;background:yellow">的二代居民身份证</span><strong><span style="font-size:19px;font-family:宋体;color:red;background:yellow">原件</span></strong><span style="font-size:19px;color:black;background:yellow">参加考试。这是</span><span style="font-size:19px;background:yellow">剑桥通用五级考试唯一接受的大陆考生的身份证件<span style="color:black">。</span></span></p><p style="margin-bottom:0;margin-bottom:0"><span style="background: yellow">根据中华人民共和国相关法律，任何年龄的公民，均可在户籍所在地申领居民身份证。请考生确认所持二代身份证仍在有效期内、芯片信息读取功能正常、本人当前相貌无重大改变(如整容、性别改变等)。否则，建议考生立即重新申请新的二代身份证。</span></p><p class="MsoListParagraph"><span style="font-size:19px;color:black;background: yellow">如大陆考生不能出示</span><strong><span style="font-size:19px;font-family:宋体;color:red;background:yellow">有效</span></strong><span style="font-size:19px;color:black;background:yellow">的二代居民身份证</span><strong><span style="font-size:19px;font-family:宋体;color:red;background:yellow">原件</span></strong><span style="font-size:19px;color:black;background:yellow">，将禁止参加考试。</span></p><p style="margin-bottom:0;margin-bottom:0">&nbsp;</p><p style="margin-bottom:0;margin-bottom:0">2.如当前考位“状态”显示为“名额暂满”，则无法选择该考点报考。请于报名开放期间，随时关注该考点考位状态变化或选择其他考点报考。</p><p style="margin-bottom:0;margin-bottom:0">3.KET(KET校园版)和PET(PET校园版)不允许同时报考。</p><p style="margin-bottom:0;margin-bottom:0">4.网上报名成功并完成在线缴费后，报名即刻生效。所有报考信息将不允许更改，考试费不予退还。请考生在进行缴费前，慎重核对所有个人信息和报考科目信息，确认无误后，再进行网上支付。</p><p style="margin-bottom:0;margin-bottom:0">5.考试日期是纸笔部分的考试日期，口试部分的考试日期请以准考证上显示的为准。</p><p style="margin-bottom: 0px;"><br></p></div>
+     
+                 </div>
+
+             </div>
+         </div>
+     </div>
+ </div>
+ <div style="display: none;">
+     <form action="http://order.neea.cn/13Index/confirmation" method="post"></form> 
+ </div>
+</div>
+<script type="text/javascript">
+var studentTypeVal ="08";
+var subIsMultiple = ""
+var area = "0"
+var examTimeConflict ="1";
+var packageListfn = 0;
+var regExamInfoList = eval();
+var loginUrl = "https://member.neea.cn/login";
+var nowDate = "1577413195833";
+var linaUrl = "http://order.neea.cn";
+var uId = "1e08d7fa8e9d4f3ca4f94a0aef8bf5a3";
+var nodeCode = "0101";
+var paymentType = "1";
+var proId = "13";
+var linaUsercenterUserinfoUrl = "https://member.neea.cn/userCenter/userInfo";
+var isBalance = "";
+var balance = "";
+var balanceMsg = "";
+var advanceUrl = "http://order.neea.cn/select/advance";
+var svorelistSize = 0;
+</script>
+
+		
+		
+
+
+
+
+<div style="width:100%;height:80px;"></div>
+<div class="copyright" id="copyright" style="background:none repeat scroll 0 0 #fff;border-top:1px solid #f1f1f1;font-size: 12px;padding: 10px 0px;position:fixed;bottom:0;width:100%;height:80px;z-index:998;">
+       <div class="container" style="margin-top:15px;margin-bottom:15px;">
+           <div class="row">
+           		 <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                    
+                </div>                   
+           </div>
+        </div> 
+     </div> 
+     
+	
+ 	
+	
+	
+	
+	
+ 		
+	
+
+	
+
+
+<div id="topcontrol" style="position: fixed; bottom: 90px; right: 20px; opacity: 0; cursor: pointer; z-index: 1000;" title="Scroll Back to Top"><img src="%E9%80%89%E6%8B%A9%E6%8A%A5%E8%80%83_files/up.png" style="width:40px; height:40px;"></div></body></html>
