@@ -16,7 +16,11 @@ from selenium.webdriver.support.select import Select
 
 from utility import *
 
-with open('user_config_CAE.cfg', 'r',encoding='utf-8') as f:
+logging.basicConfig(level = logging.INFO,format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
+logger.info("开始输入")
+with open('user_config.cfg', 'r',encoding='utf-8') as f:
     user_config = json.load(f)
 
 with open('basic_config.cfg', 'r',encoding='utf-8') as f:
@@ -41,7 +45,7 @@ try:
     windows = browser.window_handles
     browser.switch_to.window(windows[-1])
     login_url = browser.current_url
-    print(login_url)
+    logger.info(login_url)
 
     # 登录成功就直接进行下一步
     max_Try_Num = 5 #  最大重试5次
@@ -80,7 +84,7 @@ try:
     agreeBtn = BrowserHelper.find_element(browser, basic_config['agree_btn'], )
     BrowserHelper.eleClick(agreeBtn)
     # 等待3秒，确保新页面出现
-    time.sleep(40)
+    time.sleep(20)
 
     url = r'file:///' + reduce(os.path.join,[os.getcwd(),'mse_source','选择报考.htm'])
     BrowserHelper.openUrl(browser, url)
@@ -89,32 +93,42 @@ try:
     while not successed:
         # step4、 选择考点，报名项目、报名
         # 选考试名称
+        alert_model_str = basic_config['alert_model']
+        alert_model_close_str = basic_config['alert_model_close_btn']
+        alert_model = BrowserHelper.find_element(browser,alert_model_str)
+        alert_model_close_btn = BrowserHelper.find_element(alert_model, alert_model_close_str)
+
         exam_Name_str = basic_config['base_exam_name'] % user_config['exam_name']
         exam_Name_btn = BrowserHelper.find_element(browser, exam_Name_str,)
         BrowserHelper.eleClick(exam_Name_btn)
+        if alert_model.is_displayed():
+            BrowserHelper.eleClick(alert_model_close_btn)
         # 选地区
         region_Selector = Select(BrowserHelper.find_element(browser,basic_config['exam_region_selector']))  # 实例化Select
         time.sleep(2)
         region_Selector.select_by_visible_text(user_config['exam_region_name'])
+        if alert_model.is_displayed():
+            BrowserHelper.eleClick(alert_model_close_btn)
+
         # 选科目
         time.sleep(2)
         exam_type_str = basic_config['base_exam_type'] % user_config['exam_type_name']
         exam_type_btn = BrowserHelper.find_element(browser, exam_type_str,)
         exam_type_id = exam_type_btn.get_attribute("attrval")
         BrowserHelper.eleClick(exam_type_btn)
+        if alert_model.is_displayed():
+            BrowserHelper.eleClick(alert_model_close_btn)
 
         next_step_btn = None
         radio_selector_btn = None
-        alert_model_str = basic_config['alert_model']
-        alert_model_close_str = basic_config['alert_model_close_btn']
-        alert_model = BrowserHelper.find_element(browser,alert_model_str)
-        alert_model_close_btn = BrowserHelper.find_element(alert_model, alert_model_close_str)
+
 
         i = 0
         #  不停选择考点
 
         while i < len(user_config['exam_address_name_list'])+2:
             address = user_config['exam_address_name_list'][i]#  选考点
+            # logger.info(address)
             i += 1
             if i == len(user_config['exam_address_name_list']):
                 i = 0
