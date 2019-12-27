@@ -5,6 +5,7 @@
 # @Date  : 12/25/2019
 # @Desc  : 剑桥mse报名脚本
 import json
+from functools import reduce
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -81,6 +82,8 @@ try:
     # 等待3秒，确保新页面出现
     time.sleep(40)
 
+    url = r'file:///' + reduce(os.path.join,[os.getcwd(),'mse_source','选择报考.htm'])
+    BrowserHelper.openUrl(browser, url)
     order_url = browser.current_url
     successed = False
     while not successed:
