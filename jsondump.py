@@ -58,7 +58,7 @@ basic_config['base_radio_selector'] = '//table[contains(@class,"store_cart_conte
 basic_config['next_step_btn'] = '//div[@id="submit_but"]/button[contains(text(),"下一步")]'
 basic_config['alert_model'] = '//div[@id="alert_model"]'
 basic_config['alert_model_close_btn']=  '//a[@id="closeThePage" and contains(text(),"x")]'
-basic_config['loadingBg']               = '//div[@id="basic_config"]'
+basic_config['loadingBg']               = '//div[@id="loadingBg"]'
 # 声明浏览器对象，将chromedriver驱动放在chrome浏览器安装目录下，指定驱动的绝对路径
 # browser = webdriver.Chrome(executable_path=r'D:\Google\Chrome\Application\chromedriver')
 
