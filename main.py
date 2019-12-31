@@ -20,7 +20,7 @@ logging.basicConfig(level = logging.INFO,format = '%(asctime)s - %(name)s - %(le
 logger = logging.getLogger(__name__)
 
 logger.info("开始输入")
-with open('user_config.cfg', 'r',encoding='utf-8') as f:
+with open('user_config_CAE.cfg', 'r',encoding='utf-8') as f:
     user_config = json.load(f)
 
 with open('basic_config.cfg', 'r',encoding='utf-8') as f:
@@ -86,8 +86,6 @@ try:
     # 等待3秒，确保新页面出现
     time.sleep(20)
 
-    url = r'file:///' + reduce(os.path.join,[os.getcwd(),'mse_source','选择报考.htm'])
-    BrowserHelper.openUrl(browser, url)
     order_url = browser.current_url
     successed = False
     while not successed:
