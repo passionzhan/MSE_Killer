@@ -16,7 +16,7 @@ from selenium.webdriver.support.select import Select
 
 from utility import *
 
-logging.basicConfig(level = logging.INFO,format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logging.basicConfig(level = logging.INFO, format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 logger.info("开始输入")
@@ -82,7 +82,11 @@ try:
     # 拖动使同意按钮可见
     browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     agreeBtn = BrowserHelper.find_element(browser, basic_config['agree_btn'], )
+    time.sleep(5)
     BrowserHelper.eleClick(agreeBtn)
+    # 测试脚本点击
+    # agreeBtn = BrowserHelper.find_element(browser, basic_config['agree_btn'], )
+    # BrowserHelper.eleClick(agreeBtn, browser)
     # 等待3秒，确保新页面出现
     time.sleep(20)
 
@@ -132,7 +136,7 @@ try:
                 i = 0
 
             exam_address_btn_str = basic_config['base_exam_address'] % address
-            exam_address_btn = BrowserHelper.find_element(browser, exam_address_btn_str, wTime=0.5,)
+            exam_address_btn = BrowserHelper.find_element(browser, exam_address_btn_str, wTime=2,)
             BrowserHelper.eleClick(exam_address_btn)
             if alert_model.is_displayed():
                 #  出错，则关闭弹出窗，继续
@@ -141,15 +145,20 @@ try:
             # 分析页面后改进
             cur_url = browser.current_url
             radio_selector_btn_str = basic_config['base_radio_selector']
-            radio_selector_btn = BrowserHelper.find_element(browser, radio_selector_btn_str, wTime=0.5,)
+            radio_selector_btn = BrowserHelper.find_element(browser, radio_selector_btn_str, wTime=2,wStr=u"没有找到选择科目的单选按钮！")
             excute_status = 0
             # 1 抢票成功
             # 2 出错，出现弹窗，关闭弹窗继续
             # 3 点击后页面打不开
             if radio_selector_btn:
-                next_step_btn = BrowserHelper.find_element(browser, basic_config['next_step_btn'], wTime=0.5, )
+                logger.info("找到选择科目的单选按钮！")
+                next_step_btn = BrowserHelper.find_element(browser, basic_config['next_step_btn'], wTime=2, wStr=u"没有找到下一步采集信息的按钮！")
                 if next_step_btn:
-                    BrowserHelper.eleClick(next_step_btn)
+                    loadingBg_div = BrowserHelper.find_element(browser, basic_config['loadingBg'], wTime=0.5, wStr=u"没有找到等待框！")
+                    if loadingBg_div:
+                        browser.execute_script("arguments[0].remove();", loadingBg_div)
+                    logger.info("找到下一步采集信息的按钮！")
+                    BrowserHelper.eleClick(next_step_btn,browser)
                     # 判断是否成功
                     wait_time = 0
                     while True:
@@ -171,7 +180,7 @@ try:
                                 break
                     break
 
-        BrowserHelper.openUrl(order_url)
+        BrowserHelper.openUrl(browser, order_url)
         # time.sleep(3)
 
 finally:

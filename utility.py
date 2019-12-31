@@ -137,10 +137,13 @@ class BrowserHelper():
             exit(1)
 
     @staticmethod
-    def eleClick(eleNode,):
+    def eleClick(eleNode,browser=None):
         successFlag = False
         try:
-            eleNode.click()
+            if browser:
+                browser.execute_script("arguments[0].click();", eleNode)
+            else:
+                eleNode.click()
             successFlag = True
         except Exception as e:
             logger.error(repr(e))

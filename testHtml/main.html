@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="../mse_source/order_files/select.js"></script>
 </head>
 <body>
 
@@ -42,6 +43,7 @@
 </div>
 </body>
 <script>
+	loadingBgAdd();
 	$("button").click(function(){
 	    if ($('input').val() !=''){
 	         location.href = 'forward.html'
@@ -50,5 +52,6 @@
 	        $('#myModal').modal('show')
 		}
 	});
+	loadingBgRemove();
 </script>
 </html>

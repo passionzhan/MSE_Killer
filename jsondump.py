@@ -10,6 +10,7 @@
 2019/12/26 22:58   zhan      1.0         None
 '''
 import json
+import os
 
 user_config = {}
 user_config['user']                    = 'xxxxx'
@@ -57,15 +58,21 @@ basic_config['base_radio_selector'] = '//table[contains(@class,"store_cart_conte
 basic_config['next_step_btn'] = '//div[@id="submit_but"]/button[contains(text(),"下一步")]'
 basic_config['alert_model'] = '//div[@id="alert_model"]'
 basic_config['alert_model_close_btn']=  '//a[@id="closeThePage" and contains(text(),"x")]'
+basic_config['loadingBg']               = '//div[@id="basic_config"]'
 # 声明浏览器对象，将chromedriver驱动放在chrome浏览器安装目录下，指定驱动的绝对路径
 # browser = webdriver.Chrome(executable_path=r'D:\Google\Chrome\Application\chromedriver')
 
 user_config_str = json.dumps(user_config,indent=4,ensure_ascii=False)
 basic_config_str = json.dumps(basic_config,indent=4,ensure_ascii=False)
 
+
+if(os.path.exists('user_config.cfg')):
+    os.remove('user_config.cfg')
 with open('user_config.cfg','x',encoding='utf-8')as f:
     f.write(user_config_str)
 
+if(os.path.exists('basic_config.cfg')):
+    os.remove('basic_config.cfg')
 with open('basic_config.cfg','x',encoding='utf-8')as f:
     f.write(basic_config_str)
 

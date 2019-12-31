@@ -6300,7 +6300,7 @@ function loadingBgAdd() {
     openNewDiv()
 }
 function loadingBgRemove() {
-    setTimeout('$("#loadingBg").remove()', 500)
+    setTimeout('$("#loadingBg").remove()', 5000)
 }
 var docEle = function() {
     return document.getElementById(arguments[0]) || !1
